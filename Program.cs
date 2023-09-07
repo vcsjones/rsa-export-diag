@@ -56,8 +56,7 @@ unsafe {
     Console.WriteLine("\nAttempting to reproduce original error.");
     Console.WriteLine(new string('-', 32));
 
-    using (RSAOpenSsl rsaOpenSsl = new RSAOpenSsl(2048))
-    {
+    using (RSAOpenSsl rsaOpenSsl = new RSAOpenSsl(2048)) {
         using SafeEvpPKeyHandle keyHandle = rsaOpenSsl.DuplicateKeyHandle();
         IntPtr pKeyHandle = keyHandle.DangerousGetHandle();
 
@@ -83,8 +82,7 @@ unsafe {
     Console.WriteLine("\nAttempting native OpenSSL invocations.");
     Console.WriteLine(new string('-', 32));
 
-    using (RSAOpenSsl rsaOpenSsl = new RSAOpenSsl(2048))
-    {
+    using (RSAOpenSsl rsaOpenSsl = new RSAOpenSsl(2048)) {
         // RSA dummy = RSA.Create(2048);
         // rsaOpenSsl.ImportParameters(dummy.ExportParameters(false));
         using SafeEvpPKeyHandle keyHandle = rsaOpenSsl.DuplicateKeyHandle();
